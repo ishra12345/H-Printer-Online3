@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H Printer Online - Professional Printer & Setup Information</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-900 text-white text-xs md:text-sm py-2 px-4 text-center font-medium">
+        <div class="container mx-auto flex justify-between items-center px-2 md:px-6">
+            <span><i class="fa-solid fa-headset mr-2"></i>24/7 Printer Setup & Troubleshooting Guidance</span>
+            <a href="tel:7505697279" class="hover:underline flex items-center gap-1 font-semibold text-blue-200">
+                <i class="fa-solid fa-phone text-xs"></i> Call Now: 7505697279
+            </a>
+        </div>
+    </div>
+
+    <!-- Sticky Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md transition-all">
+        <div class="container mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" onclick="switchTab('home')" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white text-xl font-extrabold shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-print"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-slate-900">H PRINTER <span class="text-brand-600">ONLINE</span></span>
+                    <p class="text-[10px] text-slate-500 font-medium tracking-wider uppercase">Independent Info Portal</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden lg:flex items-center space-x-1 font-medium text-slate-600 text-sm">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-lg text-brand-600 bg-brand-50 font-semibold transition-all"><a href="index.html">Home</a></button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition-all"><a href="contact-us.html">Contact Us</a></button>
+                <button onclick="switchTab('privacy')" id="nav-privacy" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition-all"><a href="privacy-policy.html">Privacy Policy</a></button>
+                <button onclick="switchTab('disclaimer')" id="nav-disclaimer" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition-all"><a href="disclaimer.html">Disclaimer</a></button>
+            </nav>
+
+            <!-- Call Us Button -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="tel:7505697279" class="flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-brand-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                    <i class="fa-solid fa-phone-volume animate-pulse"></i>
+                    <span>Call: 7505697279</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden text-slate-700 hover:text-brand-600 p-2 rounded-lg focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 space-y-2 shadow-xl">
+            <button onclick="switchTab('home')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="index.html">Home</a></button>
+            <button onclick="switchTab('contact')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="contact-us.html">Contact Us</a></button>
+            <button onclick="switchTab('privacy')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="privacy-policy.html">Privacy Policy</a></button>
+            <button onclick="switchTab('disclaimer')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="disclaimer.html">Disclaimer</a></button>
+            
+            <div class="pt-2">
+                <a href="tel:7505697279" class="w-full flex items-center justify-center gap-2 bg-brand-600 text-white font-semibold px-4 py-3 rounded-xl shadow-md">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>Call Us: 7505697279</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ==================== SECTION 5: PRIVACY POLICY ==================== -->
+        <section id="privacy" class="container mx-auto px-4 md:px-8 max-w-5xl pt-6">
+            <div class="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600">Legal Documentation</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">Privacy Policy</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Effective Date: 2026 | H Printer Online Information Hub</p>
+                </div>
+
+                <div class="space-y-4 text-xs text-slate-600 leading-relaxed">
+                    <p>
+                        At <strong>H Printer Online</strong> (Registered Address: H No 32/318, Block 32, Chilla Saroda Khadar, East Delhi, Delhi 110091), accessible from our website, one of our main priorities is the privacy of our visitors.
+                    </p>
+
+                    <h3 class="font-bold text-slate-900 text-sm border-l-2 border-brand-600 pl-3">1. Information Collection and Use</h3>
+                    <p>
+                        We collect personal information that you voluntarily provide when contacting us via telephone at <strong>7505697279</strong> or through our online inquiry forms. This information may include your name, telephone number, email address, and printer details.
+                    </p>
+
+                    <h3 class="font-bold text-slate-900 text-sm border-l-2 border-brand-600 pl-3">2. Log Files & Cookies</h3>
+                    <p>
+                        H Printer Online follows standard procedures for log file analysis. These files log visitors when they visit websites. The information collected includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, and referring/exit pages. This data is not linked to any personally identifiable information.
+                    </p>
+
+                    <h3 class="font-bold text-slate-900 text-sm border-l-2 border-brand-600 pl-3">3. Data Security</h3>
+                    <p>
+                        We do not sell, trade, or rent user personal identification information to third parties. We implement appropriate data collection, storage, and processing practices to protect against unauthorized access or disclosure.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-sm py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+                <!-- Col 1 -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center gap-2 text-white font-bold text-lg">
+                        <i class="fa-solid fa-print text-brand-500"></i> H PRINTER ONLINE
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Your trusted independent guide for printer setup, driver information, wireless networking, and troubleshooting.
+                    </p>
+                    <p class="text-xs text-brand-400 font-semibold">
+                        <i class="fa-solid fa-phone text-xs mr-1"></i> Call Line: 7505697279
+                    </p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><button onclick="switchTab('home')" class="hover:text-white transition-colors"><a href="index.html">Home Page</a></button></li>
+                        <li><button onclick="switchTab('contact')" class="hover:text-white transition-colors"><a href="contact-us.html">Contact Us</a></button></li>
+                        <li><button onclick="switchTab('privacy')" class="hover:text-white transition-colors"><a href="privacy-policy.html">Privacy Policy</a></button></li>
+                        <li><button onclick="switchTab('disclaimer')" class="hover:text-white transition-colors"><a href="disclaimer.html">Disclaimer</a></button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Guides & Setup</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Wi-Fi Setup Help</a></li>
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Driver Installation</a></li>
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Offline Printer Fix</a></li>
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Scanner Configuration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Independent Disclaimer</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        H Printer Online is an independent service provider. Third-party brand names & trademarks are used purely for informational references.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 H Printer Online. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <button onclick="switchTab('privacy')" class="hover:underline"><a href="privacy-policy.html">Privacy Policy</a></button> | 
+                    <button onclick="switchTab('disclaimer')" class="hover:underline"><a href="disclaimer.html">Disclaimer</a></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Navigation & Interactivity -->
+    <script>
+        // Tab switching logic
+        function switchTab(tabId) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected tab
+            const targetTab = document.getElementById('tab-' + tabId);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+
+            // Update desktop nav buttons styling
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('text-brand-600', 'bg-brand-50', 'font-semibold');
+                btn.classList.add('hover:text-brand-600', 'hover:bg-slate-100');
+            });
+
+            const activeNavBtn = document.getElementById('nav-' + tabId);
+            if (activeNavBtn) {
+                activeNavBtn.classList.add('text-brand-600', 'bg-brand-50', 'font-semibold');
+                activeNavBtn.classList.remove('hover:bg-slate-100');
+            }
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+
+            // Scroll to top of window
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        // Accordion FAQ Toggle
+        function toggleFaq(faqId) {
+            const content = document.getElementById(faqId);
+            const icon = document.getElementById(faqId + '-icon');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Contact Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successBox = document.getElementById('form-success');
+            const form = document.getElementById('contact-form');
+            
+            successBox.classList.remove('hidden');
+            form.reset();
+
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H Printer Online - Professional Printer & Setup Information</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-900 text-white text-xs md:text-sm py-2 px-4 text-center font-medium">
+        <div class="container mx-auto flex justify-between items-center px-2 md:px-6">
+            <span><i class="fa-solid fa-headset mr-2"></i>24/7 Printer Setup & Troubleshooting Guidance</span>
+            <a href="tel:7505697279" class="hover:underline flex items-center gap-1 font-semibold text-blue-200">
+                <i class="fa-solid fa-phone text-xs"></i> Call Now: 7505697279
+            </a>
+        </div>
+    </div>
+
+    <!-- Sticky Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md transition-all">
+        <div class="container mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" onclick="switchTab('home')" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white text-xl font-extrabold shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-print"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-slate-900">H PRINTER <span class="text-brand-600">ONLINE</span></span>
+                    <p class="text-[10px] text-slate-500 font-medium tracking-wider uppercase">Independent Info Portal</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden lg:flex items-center space-x-1 font-medium text-slate-600 text-sm">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-lg text-brand-600 bg-brand-50 font-semibold transition-all"><a href="index.html">Home</a></button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition-all"><a href="contact-us.html">Contact Us</a></button>
+                <button onclick="switchTab('privacy')" id="nav-privacy" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition-all"><a href="privacy-policy.html">Privacy Policy</a></button>
+                <button onclick="switchTab('disclaimer')" id="nav-disclaimer" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition-all"><a href="disclaimer.html">Disclaimer</a></button>
+            </nav>
+
+            <!-- Call Us Button -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="tel:7505697279" class="flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-brand-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                    <i class="fa-solid fa-phone-volume animate-pulse"></i>
+                    <span>Call: 7505697279</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden text-slate-700 hover:text-brand-600 p-2 rounded-lg focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 space-y-2 shadow-xl">
+            <button onclick="switchTab('home')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="index.html">Home</a></button>
+            <button onclick="switchTab('contact')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="contact-us.html">Contact Us</a></button>
+            <button onclick="switchTab('privacy')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="privacy-policy.html">Privacy Policy</a></button>
+            <button onclick="switchTab('disclaimer')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="disclaimer.html">Disclaimer</a></button>
+            
+            <div class="pt-2">
+                <a href="tel:7505697279" class="w-full flex items-center justify-center gap-2 bg-brand-600 text-white font-semibold px-4 py-3 rounded-xl shadow-md">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>Call Us: 7505697279</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- MAIN FRONT PAGE CONTENT -->
+    <main class="flex-grow space-y-20">
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section id="hero" class="relative bg-gradient-to-br from-brand-900 via-slate-900 to-brand-800 text-white pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-600/20 via-transparent to-transparent"></div>
+            <div class="container mx-auto px-4 md:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-brand-500/20 text-brand-200 border border-brand-400/30 backdrop-blur-sm">
+                            <i class="fa-solid fa-shield-halved text-brand-500"></i> Independent Tech Resource & Driver Info Portal
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                            Master Your Printing Setup with <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-200 via-blue-400 to-brand-500">H Printer Online</span>
+                        </h1>
+                        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Comprehensive step-by-step guidance for wireless network integration, nozzle & printhead diagnostics, driver configuration, and side-by-side    matrix comparisons.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="tel:7505697279" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl shadow-xl shadow-brand-600/30 transition-all flex items-center justify-center gap-3">
+                                <i class="fa-solid fa-phone text-lg"></i> Call Helpline: 7505697279
+                            </a>
+                            <a href="#troubleshooting" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 backdrop-blur-md transition-all text-center">
+                                <i class="fa-solid fa-wrench mr-2 text-brand-200"></i> DIY Maintenance
+                            </a>
+                            <a href="#matrix" class="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-white/5 text-slate-300 font-semibold rounded-xl border border-slate-700 transition-all text-center">
+                                <i class="fa-solid fa-table-list mr-2 text-brand-200"></i> Specs Matrix
+                            </a>
+                        </div>
+
+                        <!-- Stats / Feature Badges -->
+                        <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-800/80 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+                            <div>
+                                <h4 class="text-2xl font-extrabold text-white">2026</h4>
+                                <p class="text-xs text-slate-400">Updated Tech Guides</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-extrabold text-white">100%</h4>
+                                <p class="text-xs text-slate-400">Independent Info</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-extrabold text-white">24/7</h4>
+                                <p class="text-xs text-slate-400">Online Tutorials</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Business Address Feature Card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-white text-slate-800 p-8 rounded-3xl shadow-2xl border border-slate-100 relative">
+                            <div class="absolute -top-3 -right-3 bg-brand-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md tracking-wider">
+                                Registered Office
+                            </div>
+                            <div class="flex items-center gap-4 border-b border-slate-100 pb-5 mb-5">
+                                <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                    <i class="fa-solid fa-building-user"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900 text-lg">H PRINTER ONLINE</h3>
+                                    <p class="text-xs text-slate-500 font-medium">Headquarters & Technical Desk</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 text-sm text-slate-700">
+                                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2">
+                                    <p class="font-semibold text-slate-900 flex items-center gap-2">
+                                        <i class="fa-solid fa-user-check text-brand-600"></i>
+                                        
+                                    </p>
+                                    <div class="pl-6 text-xs text-slate-600 space-y-1">
+                                        <p><i class="fa-solid fa-map-pin text-brand-600 mr-2"></i>H No 32/318, Block 32</p>
+                                        <p class="pl-5">Chilla Saroda Khadar, East Delhi</p>
+                                        <p class="pl-5 font-bold text-slate-800">Delhi - 110091, India</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-brand-50 p-4 rounded-2xl border border-brand-200 flex items-center justify-between">
+                                    <div>
+                                        <span class="text-[10px] font-bold text-brand-800 uppercase tracking-wider block">Direct Phone Line</span>
+                                        <a href="tel:7505697279" class="text-lg font-extrabold text-brand-600 hover:underline">7505697279</a>
+                                    </div>
+                                    <button onclick="copyAddress()" class="bg-white hover:bg-slate-100 text-brand-600 px-3 py-2 rounded-xl text-xs font-bold shadow-sm transition-all border border-brand-200">
+                                        <i class="fa-regular fa-copy mr-1"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                                <span><i class="fa-solid fa-clock text-green-500 mr-1"></i> Helpline Active Today</span>
+                                <span class="font-semibold text-slate-700">Delhi, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROMINENT ADDRESS & BUSINESS DETAILS BLOCK ==================== -->
+        <section class="container mx-auto px-4 md:px-8 max-w-6xl -mt-10 relative z-20">
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-200/80 grid md:grid-cols-3 gap-6">
+                
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Physical Address</h4>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            <br>
+                            H No 32/318, Block 32, Chilla Saroda Khadar,<br>
+                            East Delhi, Delhi 110091
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Contact Phone</h4>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            Call Direct: <a href="tel:7505697279" class="text-brand-600 font-bold hover:underline">7505697279</a><br>
+                             Hours: Mon - Sat (9am - 8pm)<br>
+                            Fast Setup & Inquiry Assistance
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-circle-nodes"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Independent Services</h4>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            Specializing in printer setup walkthroughs, driver fixes, printhead maintenance tutorials, and comparison tools.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 1: FEATURED TECHNICAL ARTICLES & BLOG REVIEWS ==================== -->
+        <section id="articles" class="container mx-auto px-4 md:px-8 max-w-7xl pt-6">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-extrabold uppercase tracking-widest bg-brand-50 text-brand-600 px-3.5 py-1.5 rounded-full border border-brand-200">Technical Articles & Blog Reviews</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">In-Depth Printer Tech Reviews & Analyses</h2>
+                <p class="text-slate-600 text-sm">Explore expert analysis on, ink efficiency, security protocols, and connectivity technology.</p>
+            </div>
+
+            <!-- Filter Controls & Search -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
+                <div class="flex flex-wrap justify-center gap-2">
+                    <button onclick="filterArticles('all')" class="article-btn px-4 py-2 rounded-xl text-xs font-bold bg-brand-600 text-white shadow-sm transition-all">All Articles</button>
+                    <button onclick="filterArticles('tech')" class="article-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border hover:bg-slate-100 transition-all"> Tech</button>
+
+                    <button onclick="filterArticles('cost')" class="article-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border hover:bg-slate-100 transition-all">Cost Analysis</button>
+                    <button onclick="filterArticles('network')" class="article-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border hover:bg-slate-100 transition-all">Wireless Security</button>
+                </div>
+                <div class="w-full md:w-72 relative">
+                    <input type="text" id="article-search" oninput="searchArticles()" placeholder="Search articles..." class="w-full pl-9 pr-4 py-2.5 text-xs border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white shadow-sm">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs"></i>
+                </div>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
+
+                <!-- Card 1 -->
+                <div class="article-card bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between" data-category="cost" data-title="inkjet vs laser printers business cost 2026">
+                    <div>
+                        <div class="h-48 bg-gradient-to-br from-brand-900 to-slate-800 p-6 flex flex-col justify-between text-white relative">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-600 text-white px-2.5 py-1 rounded-full w-max">Cost Analysis</span>
+                            <i class="fa-solid fa-scale-balanced text-5xl opacity-20 absolute right-4 bottom-4"></i>
+                            <h3 class="text-xl font-bold leading-tight z-10">Inkjet vs Laser Printers for Business 2026</h3>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Detailed breakdown evaluating initial cost, page yield ratios, toner durability vs liquid ink, and total cost of ownership (TCO) for modern office workloads.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100">
+                        <button onclick="openModal(1)" class="w-full bg-brand-50 hover:bg-brand-600 text-brand-600 hover:text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                            <span>Read Full Article</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="article-card bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between" data-category="network" data-title="dual band wifi printer connectivity deep dive">
+                    <div>
+                        <div class="h-48 bg-gradient-to-br from-blue-700 to-slate-900 p-6 flex flex-col justify-between text-white relative">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-500 text-white px-2.5 py-1 rounded-full w-max">Wireless Security</span>
+                            <i class="fa-solid fa-wifi text-5xl opacity-20 absolute right-4 bottom-4"></i>
+                            <h3 class="text-xl font-bold leading-tight z-10">Dual-Band Wi-Fi Printer Connectivity Deep Dive</h3>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Understanding 2.4GHz vs 5GHz router bands, Wi-Fi Direct protocols, IP lease duration, and preventing constant "Offline" device state errors.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100">
+                        <button onclick="openModal(2)" class="w-full bg-brand-50 hover:bg-brand-600 text-brand-600 hover:text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                            <span>Read Full Article</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="article-card bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between" data-category="tech" data-title="precision printhead calibration micro nozzle alignment">
+                    <div>
+                        <div class="h-48 bg-gradient-to-br from-slate-800 to-brand-800 p-6 flex flex-col justify-between text-white relative">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-600 text-white px-2.5 py-1 rounded-full w-max"> Tech</span>
+                            <i class="fa-solid fa-sliders text-5xl opacity-20 absolute right-4 bottom-4"></i>
+                            <h3 class="text-xl font-bold leading-tight z-10">Precision Printhead Calibration & Alignment</h3>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Technical explanation of micro-nozzle timing, vertical line alignment calibration, print head voltage regulation, and thermal bubble print techniques.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100">
+                        <button onclick="openModal(3)" class="w-full bg-brand-50 hover:bg-brand-600 text-brand-600 hover:text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                            <span>Read Full Article</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="article-card bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between" data-category="cost" data-title="continuous ink tank system continuous refill analysis">
+                    <div>
+                        <div class="h-48 bg-gradient-to-br from-sky-700 to-slate-900 p-6 flex flex-col justify-between text-white relative">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-600 text-white px-2.5 py-1 rounded-full w-max">Cost Analysis</span>
+                            <i class="fa-solid fa-droplet text-5xl opacity-20 absolute right-4 bottom-4"></i>
+                            <h3 class="text-xl font-bold leading-tight z-10">Tank Printer Continuous Refill Economics</h3>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Examining high-capacity liquid ink tank systems, bottle refill mechanics, waste ink pad counters, and maintenance box longevity.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100">
+                        <button onclick="openModal(4)" class="w-full bg-brand-50 hover:bg-brand-600 text-brand-600 hover:text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                            <span>Read Full Article</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="article-card bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between" data-category="network" data-title="security protocols wireless printing encryption spooler">
+                    <div>
+                        <div class="h-48 bg-gradient-to-br from-slate-900 to-brand-900 p-6 flex flex-col justify-between text-white relative">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-500 text-white px-2.5 py-1 rounded-full w-max">Wireless Security</span>
+                            <i class="fa-solid fa-lock text-5xl opacity-20 absolute right-4 bottom-4"></i>
+                            <h3 class="text-xl font-bold leading-tight z-10">Security Protocols in Wireless Office Printing</h3>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Hardening network printer security: WPA3 encryption, IPPS secure printing, print queue spooling clearance, and disabling unauthenticated ports.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-100">
+                        <button onclick="openModal(5)" class="w-full bg-brand-50 hover:bg-brand-600 text-brand-600 hover:text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                            <span>Read Full Article</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Dynamic Article Modal -->
+        <div id="article-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl max-w-2xl w-full p-6 md:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl border border-slate-100">
+                <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-800 text-2xl w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center transition-all">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div id="modal-body" class="space-y-4"></div>
+            </div>
+        </div>
+
+        <!-- ==================== SECTION 2: QUICK DIY MAINTENANCE & TROUBLESHOOTING ==================== -->
+        <section id="troubleshooting" class="bg-slate-100/70 py-16 border-y border-slate-200">
+            <div class="container mx-auto px-4 md:px-8 max-w-5xl">
+                <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                    <span class="text-xs font-extrabold uppercase tracking-widest bg-brand-100 text-brand-800 px-3.5 py-1.5 rounded-full border border-brand-200">Quick DIY Maintenance</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Step-by-Step DIY Troubleshooting Guides</h2>
+                    <p class="text-slate-600 text-sm">Click on any issue below to expand comprehensive DIY solutions and maintenance walkthroughs.</p>
+                </div>
+
+                <div class="space-y-4" id="accordion-container">
+
+                    <!-- Accordion Item 1 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion(1)" class="w-full p-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                            <span class="flex items-center gap-3 text-base">
+                                <span class="w-8 h-8 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-note-sticky"></i></span>
+                                1. How to Safe-Clear Persistent Paper Jams
+                            </span>
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform" id="icon-1"></i>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50/50" id="content-1">
+                            <div class="py-5 border-t border-slate-100 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <p class="font-semibold text-slate-900">Safety Notice: Always switch off and unplug your printer before clearing internal rollers.</p>
+                                <ol class="list-decimal pl-5 space-y-2">
+                                    <li>Turn off the printer power switch and disconnect the power cord.</li>
+                                    <li>Open the front door, main tray, and rear duplex hatch carefully.</li>
+                                    <li>Grasp the jammed paper with both hands and pull gently in the direction of the paper feed path to avoid tearing sheets.</li>
+                                    <li>Check rollers for micro paper shreds using a light source. Clean rubber pickup rollers with a damp lint-free cloth.</li>
+                                    <li>Reload fresh, uncurled A4/Letter paper and align the tray edge guides snug against the paper stack.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 2 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion(2)" class="w-full p-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                            <span class="flex items-center gap-3 text-base">
+                                <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-paint-roller"></i></span>
+                                2. Resolving Faded Print, Horizontal Streaks & Blank Lines
+                            </span>
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform" id="icon-2"></i>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50/50" id="content-2">
+                            <div class="py-5 border-t border-slate-100 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <p>Faded or streaky prints are usually caused by dry ink deposits in nozzle orifices.</p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li><strong>Run Printhead Nozzle Check:</strong> Access your printer maintenance software and initiate a nozzle pattern test.</li>
+                                    <li><strong>Execute Head Cleaning:</strong> Perform 1-2 standard head cleaning cycles. Avoid running more than 3 consecutive deep cleans to prevent ink waste tank overflow.</li>
+                                    <li><strong>Manual Contact Cleaning:</strong> For removable cartridges, wipe electrical copper contacts with a lint-free swab dipped in distilled water.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 3 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion(3)" class="w-full p-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                            <span class="flex items-center gap-3 text-base">
+                                <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-wifi"></i></span>
+                                3. Fixing Wireless Printer "Offline" & Router Disconnections
+                            </span>
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform" id="icon-3"></i>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50/50" id="content-3">
+                            <div class="py-5 border-t border-slate-100 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <ol class="list-decimal pl-5 space-y-2">
+                                    <li>Confirm your printer and computer are connected to the exact same Wi-Fi SSID (2.4GHz vs 5GHz).</li>
+                                    <li><strong>Reset Print Spooler:</strong> On Windows, press <code class="bg-slate-200 px-1 py-0.5 rounded">Win + R</code>, type <code class="bg-slate-200 px-1 py-0.5 rounded">services.msc</code>, right-click <strong>Print Spooler</strong>, and choose <strong>Restart</strong>.</li>
+                                    <li>Assign a static IP address to your printer via router administration page to prevent dynamic IP lease changes.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 4 -->
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <button onclick="toggleAccordion(4)" class="w-full p-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                            <span class="flex items-center gap-3 text-base">
+                                <span class="w-8 h-8 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-sm shrink-0"><i class="fa-solid fa-gear"></i></span>
+                                4. Drivers & Firmware Updating Walkthrough
+                            </span>
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform" id="icon-4"></i>
+                        </button>
+                        <div class="accordion-content px-6 bg-slate-50/50" id="content-4">
+                            <div class="py-5 border-t border-slate-100 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <p>Outdated drivers can cause print jobs to hang indefinitely in spooling status.</p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Uninstall generic OS drivers and download manufacturer-specific full software packages.</li>
+                                    <li>Ensure your USB data cable is under 6 feet long if performing a wired driver setup.</li>
+                                    <li>Never interrupt power supply during a printer firmware flash update.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-8 bg-brand-600 text-white rounded-2xl p-6 text-center space-y-3 shadow-lg">
+                    <h3 class="font-bold text-lg">Need Direct Guidance?</h3>
+                    <p class="text-xs text-brand-100">Our helpline is active for telephone guidance on printer configurations.</p>
+                    <a href="tel:7505697279" class="inline-flex items-center gap-2 bg-white text-brand-700 hover:bg-brand-50 font-extrabold text-sm px-6 py-2.5 rounded-xl transition-all shadow-md">
+                        <i class="fa-solid fa-phone"></i> Call 7505697279
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 3: INTERACTIVE PRINTER COMPARISON MATRIX ==================== -->
+        <section id="matrix" class="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-extrabold uppercase tracking-widest bg-brand-50 text-brand-600 px-3.5 py-1.5 rounded-full border border-brand-200"> Comparison Matrix</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Side-by-Side Printer Specs Evaluation</h2>
+                <p class="text-slate-600 text-sm">Compare printing technologies, estimated running costs, speeds, and recommended workloads.</p>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 mb-6 flex flex-col md:flex-row gap-4 justify-between items-center shadow-sm">
+                <div class="w-full md:w-80 relative">
+                    <input type="text" id="matrix-search" oninput="filterMatrix()" placeholder="Filter matrix by printer category or spec..." class="w-full pl-9 pr-4 py-2.5 text-xs border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 bg-slate-50">
+                    <i class="fa-solid fa-filter absolute left-3 top-3 text-slate-400 text-xs"></i>
+                </div>
+                <div class="text-xs text-slate-500 font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-green-500"></i> Updated specifications for home & office setups.
+                </div>
+            </div>
+
+            <!-- Matrix Table -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-md overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-brand-900 text-white font-bold text-xs uppercase tracking-wider">
+                            <th class="p-4 border-b border-brand-800">Printer Category</th>
+                            <th class="p-4 border-b border-brand-800">Speed (PPM)</th>
+                            <th class="p-4 border-b border-brand-800">Max Resolution</th>
+                            <th class="p-4 border-b border-brand-800">Connectivity</th>
+                            <th class="p-4 border-b border-brand-800">Est. Cost/Page</th>
+                            <th class="p-4 border-b border-brand-800">Monthly Duty Cycle</th>
+                            <th class="p-4 border-b border-brand-800">Best Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody id="matrix-body" class="divide-y divide-slate-100 text-slate-700 font-medium">
+                        
+                        <tr class="matrix-row hover:bg-slate-50/80 transition-colors">
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 text-sm block">Refillable Ink Tank All-In-One</span>
+                                <span class="text-[10px] text-brand-600 font-semibold">Continuous Tank Series</span>
+                            </td>
+                            <td class="p-4">15 Mono / 8 Color</td>
+                            <td class="p-4">5760 x 1440 DPI</td>
+                            <td class="p-4">Wi-Fi Direct, USB 2.0, App</td>
+                            <td class="p-4 text-green-600 font-bold">$0.003 - $0.008</td>
+                            <td class="p-4">Up to 3,000 Pages</td>
+                            <td class="p-4">High-volume home office, student assignments, photo prints</td>
+                        </tr>
+
+                        <tr class="matrix-row hover:bg-slate-50/80 transition-colors">
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 text-sm block">Monochrome Enterprise Laser</span>
+                                <span class="text-[10px] text-slate-500 font-semibold">Fast Business Series</span>
+                            </td>
+                            <td class="p-4">35 - 42 Mono Only</td>
+                            <td class="p-4">1200 x 1200 DPI</td>
+                            <td class="p-4">Gigabit Ethernet, Wi-Fi, USB</td>
+                            <td class="p-4 text-brand-600 font-bold">$0.015 - $0.025</td>
+                            <td class="p-4">Up to 50,000 Pages</td>
+                            <td class="p-4">Commercial offices, legal document preparation, high-speed text</td>
+                        </tr>
+
+                        <tr class="matrix-row hover:bg-slate-50/80 transition-colors">
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 text-sm block">Color Laser Dual-Tray Workgroup</span>
+                                <span class="text-[10px] text-slate-500 font-semibold">Corporate Color Series</span>
+                            </td>
+                            <td class="p-4">28 Mono / 28 Color</td>
+                            <td class="p-4">600 x 600 DPI (Enhanced)</td>
+                            <td class="p-4">Dual-Band Wi-Fi, NFC, LAN</td>
+                            <td class="p-4 text-slate-700 font-bold">$0.06 - $0.10</td>
+                            <td class="p-4">Up to 30,000 Pages</td>
+                            <td class="p-4">Marketing collateral, graphic reports, corporate presentations</td>
+                        </tr>
+
+                        <tr class="matrix-row hover:bg-slate-50/80 transition-colors">
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 text-sm block">Compact Desk Cartridge Inkjet</span>
+                                <span class="text-[10px] text-slate-500 font-semibold">Entry Level Home</span>
+                            </td>
+                            <td class="p-4">7.5 Mono / 5.5 Color</td>
+                            <td class="p-4">4800 x 1200 DPI</td>
+                            <td class="p-4">Wi-Fi, Bluetooth, USB</td>
+                            <td class="p-4 text-amber-600 font-bold">$0.09 - $0.14</td>
+                            <td class="p-4">Up to 1,000 Pages</td>
+                            <td class="p-4">Occasional home document scanning & low volume printing</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 4: FULL CONTACT US SECTION ==================== -->
+        <section id="contact" class="container mx-auto px-4 md:px-8 max-w-7xl pt-6">
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+                <div class="grid lg:grid-cols-12">
+                    
+                    <!-- Left Sidebar Contact Info -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-brand-900 via-slate-900 to-brand-800 text-white p-8 md:p-10 flex flex-col justify-between space-y-8">
+                        <div>
+                            <span class="text-[10px] font-extrabold uppercase tracking-widest bg-brand-500/20 text-brand-200 px-3 py-1 rounded-full border border-brand-400/30">Get In Touch</span>
+                            <h2 class="text-3xl font-extrabold mt-3">Contact H Printer Online</h2>
+                            <p class="text-slate-300 text-xs leading-relaxed mt-2">
+                                Have questions regarding printer drivers, setup walkthroughs, or specifications? Send us an inquiry or reach our helpline.
+                            </p>
+
+                            <div class="mt-8 space-y-6 text-xs">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 bg-brand-600/30 text-brand-200 rounded-xl flex items-center justify-center shrink-0 text-base border border-brand-500/30">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <strong class="block text-white text-sm">Registered Office Address</strong>
+                                        <p class="text-slate-300 mt-1 leading-relaxed">
+                                            <br>
+                                            H No 32/318, Block 32, Chilla Saroda Khadar,<br>
+                                            East Delhi, Delhi 110091, India
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 bg-brand-600/30 text-brand-200 rounded-xl flex items-center justify-center shrink-0 text-base border border-brand-500/30">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <strong class="block text-white text-sm">Helpline Telephone</strong>
+                                        <a href="tel:7505697279" class="text-brand-200 text-base font-extrabold hover:underline block mt-0.5">7505697279</a>
+                                        <p class="text-slate-400 text-[11px]">Available Mon-Sat for information</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 bg-brand-600/30 text-brand-200 rounded-xl flex items-center justify-center shrink-0 text-base border border-brand-500/30">
+                                        <i class="fa-solid fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <strong class="block text-white text-sm">Operational Hours</strong>
+                                        <p class="text-slate-300 mt-0.5">9:00 AM – 8:00 PM IST</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location Visual Badge -->
+                        <div class="bg-white/10 p-4 rounded-2xl border border-white/10 backdrop-blur-sm text-xs">
+                            <div class="flex items-center gap-2 font-semibold text-brand-200 mb-1">
+                                <i class="fa-solid fa-map-location-dot"></i> Service Region
+                            </div>
+                            <p class="text-slate-300 text-[11px]">East Delhi, Delhi 110091 & Remote Technical Guidance Nationwide.</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Interactive Form -->
+                    <div class="lg:col-span-7 p-8 md:p-10 bg-white">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Send An Technical Inquiry</h3>
+                        <p class="text-xs text-slate-500 mb-6">Fill out the details below and our technical knowledge desk will respond promptly.</p>
+
+                        <form id="contact-form" onsubmit="handleContact(event)" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Full Name *</label>
+                                    <input type="text" required placeholder="e.g. Mohd Nasir" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Phone Number *</label>
+                                    <input type="tel" required placeholder="Your contact number" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Email Address</label>
+                                    <input type="email" placeholder="name@example.com" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Printer Model</label>
+                                    <input type="text" placeholder="e.g. InkTank 415 / LaserJet Pro" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Inquiry / Issue Message *</label>
+                                <textarea rows="4" required placeholder="Describe your printer configuration query or setup request..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-brand-600/20 transition-all text-xs">
+                                Submit Technical Inquiry
+                            </button>
+                        </form>
+
+                        <div id="contact-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-800 rounded-2xl text-xs font-semibold flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-green-600 text-xl shrink-0"></i>
+                            <div>
+                                <p class="font-bold">Inquiry Received!</p>
+                                <p class="text-[11px] font-normal">Thank you for contacting H Printer Online. For instant helpline assistance, call <strong>7505697279</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+            <!-- Features / Services Grid -->
+            <div class="py-16 md:py-20 bg-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Our Services & Solutions</h2>
+                        <p class="text-3xl font-extrabold text-slate-900">Comprehensive Printer Information</p>
+                        <p class="text-slate-600 mt-3 text-base">We provide step-by-step information and guidance to resolve all types of printing and software challenges.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Card 1 -->
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-brand-200 hover:shadow-xl transition-all group">
+                            <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">New Printer Setup</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Unboxing, installation, cartridge placement, and initial alignment setup instructions for home and office printers.
+                            </p>
+                            <a href="tel:7505697279" class="text-brand-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">Learn More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-brand-200 hover:shadow-xl transition-all group">
+                            <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Driver Installation</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Guidance on finding, downloading, and installing correct printer drivers for Windows, macOS, and mobile devices.
+                            </p>
+                            <a href="tel:7505697279" class="text-brand-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">Learn More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-brand-200 hover:shadow-xl transition-all group">
+                            <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-wifi"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Wi-Fi & Network Setup</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Step-by-step assistance in connecting your printer to local wireless routers, WPS setup, and network troubleshooting.
+                            </p>
+                            <a href="tel:7505697279" class="text-brand-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">Learn More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-brand-200 hover:shadow-xl transition-all group">
+                            <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Printer Offline Fix</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Instant guide to bringing offline printers back online, clearing print queues, and resetting spooler services.
+                            </p>
+                            <a href="tel:7505697279" class="text-brand-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">Learn More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-brand-200 hover:shadow-xl transition-all group">
+                            <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-scanner-gun"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Scanner & Copy Support</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Information regarding scanning software setup, document feeder configuration, and digital copy settings.
+                            </p>
+                            <a href="tel:7505697279" class="text-brand-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">Learn More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-brand-200 hover:shadow-xl transition-all group">
+                            <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-xl mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-print"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Print Quality Improvement</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Resolving faded text, streak lines, clogged printhead nozzles, and incorrect color calibration settings.
+                            </p>
+                            <a href="tel:7505697279" class="text-brand-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">Learn More <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="py-16 bg-slate-100 border-y border-slate-200">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Why Refer To H Printer Online?</h2>
+                        <p class="text-slate-600 text-sm mt-2">Clear, reliable, and user-centric information designed to fix printing issues faster.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-4 gap-6 text-center">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                            <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 mb-1">Instant Solutions</h4>
+                            <p class="text-xs text-slate-500">Quick step-by-step guides for immediate setup & fixes.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                            <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 mb-1">Multi-Brand Knowledge</h4>
+                            <p class="text-xs text-slate-500">Covers inkjet, laser, thermal, and all-in-one printer models.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                            <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 mb-1">Safe & Reliable</h4>
+                            <p class="text-xs text-slate-500">Accurate guidelines and best practice recommendations.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                            <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 mb-1">Direct Help Line</h4>
+                            <p class="text-xs text-slate-500">Reach our team directly at 7505697279 for inquiries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="py-16 bg-white">
+                <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
+                        <p class="text-slate-600 text-sm mt-2">Find answers to common questions regarding printer configuration.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button onclick="toggleFaq('faq1')" class="w-full text-left p-4 bg-slate-50 font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-100 transition-colors">
+                                <span>How do I fix my printer showing "Offline" status?</span>
+                                <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-200" id="faq1-icon"></i>
+                            </button>
+                            <div id="faq1" class="hidden p-4 text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                                First, ensure the printer is turned on and connected to the same Wi-Fi network or USB cable as your computer. Go to Settings > Devices > Printers & Scanners on your computer, select your printer, and ensure "Use Printer Offline" is unchecked in the queue settings. Restarting both router and printer often resolves this issue immediately.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button onclick="toggleFaq('faq2')" class="w-full text-left p-4 bg-slate-50 font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-100 transition-colors">
+                                <span>Where can I find the correct driver for my printer?</span>
+                                <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-200" id="faq2-icon"></i>
+                            </button>
+                            <div id="faq2" class="hidden p-4 text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                                Always download drivers directly from your printer manufacturer’s official page by searching your exact model number. Make sure to choose the correct operating system version (e.g., Windows 11, macOS Sonoma).
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button onclick="toggleFaq('faq3')" class="w-full text-left p-4 bg-slate-50 font-semibold text-slate-800 flex justify-between items-center hover:bg-slate-100 transition-colors">
+                                <span>Why won't my printer connect to Wi-Fi?</span>
+                                <i class="fa-solid fa-chevron-down text-slate-500 transition-transform duration-200" id="faq3-icon"></i>
+                            </button>
+                            <div id="faq3" class="hidden p-4 text-sm text-slate-600 bg-white border-t border-slate-100 leading-relaxed">
+                                Ensure your Wi-Fi frequency is set to 2.4 GHz as many printers do not 5 GHz networks. Re-enter the Wi-Fi password on the printer control panel or use WPS button connection if supported.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 2: CONTACT US PAGE ==================== -->
+        <section id="tab-contact" class="tab-content">
+            <div class="bg-brand-900 text-white py-12">
+                <div class="container mx-auto px-4 md:px-8 text-center">
+                    <h1 class="text-3xl md:text-4xl font-extrabold">Contact H Printer Online</h1>
+                    <p class="text-slate-300 text-sm mt-2">Have a question or need setup guidance? Reach out to us anytime.</p>
+                </div>
+            </div>
+
+            <div class="py-16 bg-slate-50">
+                <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+                    <div class="grid lg:grid-cols-12 gap-8">
+                        
+                        <!-- Contact Info Box -->
+                        <div class="lg:col-span-5 space-y-6">
+                            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                                <h3 class="text-xl font-bold text-slate-900 mb-6 border-b pb-3">Contact Information</h3>
+                                
+                                <div class="space-y-6 text-sm">
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center shrink-0 text-lg">
+                                            <i class="fa-solid fa-phone"></i>
+                                        </div>
+                                        <div>
+                                            <strong class="block text-slate-900 font-semibold">Phone Line</strong>
+                                            <a href="tel:7505697279" class="text-brand-600 text-base font-bold hover:underline">7505697279</a>
+                                            <p class="text-xs text-slate-500 mt-0.5">Available for setup inquiries</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center shrink-0 text-lg">
+                                            <i class="fa-solid fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <strong class="block text-slate-900 font-semibold">Email Us</strong>
+                                            <span class="text-slate-600">support@hprinteronline.com</span>
+                                            <p class="text-xs text-slate-500 mt-0.5">Response within 24 business hours</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center shrink-0 text-lg">
+                                            <i class="fa-solid fa-clock"></i>
+                                        </div>
+                                        <div>
+                                            <strong class="block text-slate-900 font-semibold">Operating Hours</strong>
+                                            <p class="text-slate-600">Monday - Saturday: 9:00 AM - 8:00 PM</p>
+                                            <p class="text-slate-600">Sunday: Closed / Info Portal Active</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-8 pt-6 border-t">
+                                    <a href="tel:7505697279" class="w-full flex items-center justify-center gap-2 bg-brand-600 text-white font-bold py-3 px-4 rounded-xl shadow hover:bg-brand-700 transition-colors">
+                                        <i class="fa-solid fa-phone-volume"></i> Direct Call: 7505697279
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form Box -->
+                        <div class="lg:col-span-7">
+                            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Send Us A Message</h3>
+                                <p class="text-slate-500 text-sm mb-6">Fill out the form below with your printer inquiry and model details.</p>
+
+                                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name</label>
+                                            <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
+                                            <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none">
+                                        </div>
+                                    </div>
+
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number</label>
+                                            <input type="tel" required placeholder="Your contact number" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Printer Model (Optional)</label>
+                                            <input type="text" placeholder="e.g. HP DeskJet 2700 / Canon TS3320" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Inquiry / Issue</label>
+                                        <textarea rows="4" required placeholder="Describe your printer issue or query here..." class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl shadow-lg shadow-brand-600/30 transition-all">
+                                        Submit Request
+                                    </button>
+                                </form>
+
+                                <!-- Success Notification Toast -->
+                                <div id="form-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 text-green-800 rounded-xl text-sm font-medium flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-green-600 text-lg"></i>
+                                    <span>Thank you! Your message has been submitted. For immediate help, call 7505697279.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 3: PRIVACY POLICY PAGE ==================== -->
+        <section id="tab-privacy" class="tab-content">
+            <div class="bg-slate-900 text-white py-12">
+                <div class="container mx-auto px-4 md:px-8 text-center">
+                    <h1 class="text-3xl md:text-4xl font-extrabold">Privacy Policy</h1>
+                    <p class="text-slate-400 text-sm mt-2">Last updated: October 2026</p>
+                </div>
+            </div>
+
+            <div class="py-16 bg-white">
+                <div class="container mx-auto px-4 md:px-8 max-w-4xl space-y-8 text-slate-700 leading-relaxed">
+                    <div class="bg-blue-50 border-l-4 border-brand-600 p-4 rounded-r-lg text-sm text-brand-900">
+                        At <strong>H Printer Online</strong>, accessible from our website, protecting the privacy of our visitors is one of our main priorities. This Privacy Policy document contains types of information that is collected and recorded and how we use it.
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">1. Information We Collect</h3>
+                        <p class="text-sm">When you visit H Printer Online or contact us via our contact form or phone line (7505697279), we may collect personal information you voluntarily provide, including:</p>
+                        <ul class="list-disc pl-6 text-sm mt-2 space-y-1">
+                            <li>Name and contact details (email address, telephone number)</li>
+                            <li>Printer model details and specific issue description provided by you</li>
+                            <li>Log files, IP addresses, browser types, and timestamp information collected automatically for analytic purposes.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">2. How We Use Your Information</h3>
+                        <p class="text-sm">We use the information we collect in various ways, including to:</p>
+                        <ul class="list-disc pl-6 text-sm mt-2 space-y-1">
+                            <li>Provide, operate, and maintain our informational website</li>
+                            <li>Respond to user inquiries and technical setup queries</li>
+                            <li>Improve, personalize, and expand our website content</li>
+                            <li>Understand and analyze how visitors interact with our portal</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">3. Cookies and Web Beacons</h3>
+                        <p class="text-sm">Like any other website, H Printer Online uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">4. Third-Party Links</h3>
+                        <p class="text-sm">Our site may contain links to third-party web sites or official printer driver downloads. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">5. Contact Information</h3>
+                        <p class="text-sm">If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at <strong>7505697279</strong> or via our Contact Us section.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 4: DISCLAIMER PAGE ==================== -->
+        <section id="tab-disclaimer" class="tab-content">
+            <div class="bg-slate-900 text-white py-12">
+                <div class="container mx-auto px-4 md:px-8 text-center">
+                    <h1 class="text-3xl md:text-4xl font-extrabold">Disclaimer</h1>
+                    <p class="text-slate-400 text-sm mt-2">Independent Service & Information Portal</p>
+                </div>
+            </div>
+
+            <div class="py-16 bg-white">
+                <div class="container mx-auto px-4 md:px-8 max-w-4xl space-y-8 text-slate-700 leading-relaxed">
+                    
+                    <!-- Important Disclaimer Notice Box -->
+                    <div class="bg-amber-50 border border-amber-200 p-6 rounded-2xl">
+                        <div class="flex items-center gap-3 text-amber-800 font-bold text-lg mb-2">
+                            <i class="fa-solid fa-triangle-exclamation text-xl text-amber-600"></i>
+                            <span>Important Independent Provider Disclaimer</span>
+                        </div>
+                        <p class="text-sm text-amber-900 leading-relaxed">
+                            <strong>H Printer Online</strong> is an <strong>independent third-party informational portal</strong> providing information, guides, and troubleshooting resources for printers and scanners. We are <strong>not affiliated with, endorsed by, or directly associated with</strong> any specific brand, manufacturer, or third-party trademark (such as HP, Canon, Epson, Brother, Dell, Lexmark, Xerox, or Samsung) unless explicitly specified.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">1. Use of Trademarks & Brand Names</h3>
+                        <p class="text-sm">
+                            All brand names, product names, logos, registered trademarks, and images used on this website are for <strong>referential and informational purposes only</strong> to demonstrate compatibility or options. The ownership of all brand names and logos belongs solely to their respective copyright and trademark owners.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">2. Educational & Informational Purpose</h3>
+                        <p class="text-sm">
+                            The information contained on H Printer Online is published in good faith for general information purposes only. While we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, or reliability of any driver installation or troubleshooting guide.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">3. Warranty & Repairs</h3>
+                        <p class="text-sm">
+                            If your printer is currently under manufacturer warranty, official authorized service centers may be required to maintain that warranty. Users are encouraged to contact their official brand manufacturer for official warranty service.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">4. Direct Contact</h3>
+                        <p class="text-sm">
+                            For any inquiries regarding our independent information services, please feel free to reach out to our team at <strong>7505697279</strong>.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Mobile Call Button -->
+    <a href="tel:7505697279" class="sm:hidden fixed bottom-5 right-5 z-50 bg-brand-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center text-xl hover:bg-brand-700 transition-all border-2 border-white animate-bounce">
+        <i class="fa-solid fa-phone-volume"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-sm py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+                <!-- Col 1 -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center gap-2 text-white font-bold text-lg">
+                        <i class="fa-solid fa-print text-brand-500"></i> H PRINTER ONLINE
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Your trusted independent guide for printer setup, driver information, wireless networking, and troubleshooting.
+                    </p>
+                    <p class="text-xs text-brand-400 font-semibold">
+                        <i class="fa-solid fa-phone text-xs mr-1"></i> Call Line: 7505697279
+                    </p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><button onclick="switchTab('home')" class="hover:text-white transition-colors"><a href="index.html">Home Page</a></button></li>
+                        <li><button onclick="switchTab('contact')" class="hover:text-white transition-colors"><a href="contact-us.html">Contact Us</a></button></li>
+                        <li><button onclick="switchTab('privacy')" class="hover:text-white transition-colors"><a href="privacy-policy.html">Privacy Policy</a></button></li>
+                        <li><button onclick="switchTab('disclaimer')" class="hover:text-white transition-colors"><a href="disclaimer.html">Disclaimer</a></button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Guides & Setup</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Wi-Fi Setup Help</a></li>
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Driver Installation</a></li>
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Offline Printer Fix</a></li>
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Scanner Configuration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Independent Disclaimer</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        H Printer Online is an independent service provider. Third-party brand names & trademarks are used purely for informational references.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 H Printer Online. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <button onclick="switchTab('privacy')" class="hover:underline"><a href="privacy-policy.html">Privacy Policy</a></button> | 
+                    <button onclick="switchTab('disclaimer')" class="hover:underline"><a href="disclaimer.html">Disclaimer</a></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Navigation & Interactivity -->
+    <script>
+        // Tab switching logic
+        function switchTab(tabId) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected tab
+            const targetTab = document.getElementById('tab-' + tabId);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+
+            // Update desktop nav buttons styling
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('text-brand-600', 'bg-brand-50', 'font-semibold');
+                btn.classList.add('hover:text-brand-600', 'hover:bg-slate-100');
+            });
+
+            const activeNavBtn = document.getElementById('nav-' + tabId);
+            if (activeNavBtn) {
+                activeNavBtn.classList.add('text-brand-600', 'bg-brand-50', 'font-semibold');
+                activeNavBtn.classList.remove('hover:bg-slate-100');
+            }
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+
+            // Scroll to top of window
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        // Accordion FAQ Toggle
+        function toggleFaq(faqId) {
+            const content = document.getElementById(faqId);
+            const icon = document.getElementById(faqId + '-icon');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Contact Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successBox = document.getElementById('form-success');
+            const form = document.getElementById('contact-form');
+            
+            successBox.classList.remove('hidden');
+            form.reset();
+
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>

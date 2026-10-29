@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H Printer Online - Professional Printer & Setup Information</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-900 text-white text-xs md:text-sm py-2 px-4 text-center font-medium">
+        <div class="container mx-auto flex justify-between items-center px-2 md:px-6">
+            <span><i class="fa-solid fa-headset mr-2"></i>24/7 Printer Setup & Troubleshooting Guidance</span>
+            <a href="tel:7505697279" class="hover:underline flex items-center gap-1 font-semibold text-blue-200">
+                <i class="fa-solid fa-phone text-xs"></i> Call Now: 7505697279
+            </a>
+        </div>
+    </div>
+
+    <!-- Sticky Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md transition-all">
+        <div class="container mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" onclick="switchTab('home')" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white text-xl font-extrabold shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-print"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-slate-900">H PRINTER <span class="text-brand-600">ONLINE</span></span>
+                    <p class="text-[10px] text-slate-500 font-medium tracking-wider uppercase">Independent Info Portal</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden lg:flex items-center space-x-1 font-medium text-slate-600 text-sm">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-lg text-brand-600 bg-brand-50 font-semibold transition-all"><a href="index.html">Home</a></button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition-all"><a href="contact-us.html">Contact Us</a></button>
+                <button onclick="switchTab('privacy')" id="nav-privacy" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition-all"><a href="privacy-policy.html">Privacy Policy</a></button>
+                <button onclick="switchTab('disclaimer')" id="nav-disclaimer" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-600 hover:bg-slate-100 transition-all"><a href="disclaimer.html">Disclaimer</a></button>
+            </nav>
+
+            <!-- Call Us Button -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="tel:7505697279" class="flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-brand-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                    <i class="fa-solid fa-phone-volume animate-pulse"></i>
+                    <span>Call: 7505697279</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden text-slate-700 hover:text-brand-600 p-2 rounded-lg focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 space-y-2 shadow-xl">
+            <button onclick="switchTab('home')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="index.html">Home</a></button>
+            <button onclick="switchTab('contact')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="contact-us.html">Contact Us</a></button>
+            <button onclick="switchTab('privacy')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="privacy-policy.html">Privacy Policy</a></button>
+            <button onclick="switchTab('disclaimer')" class="mobile-nav-btn block w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-600 font-medium"><a href="disclaimer.html">Disclaimer</a></button>
+            
+            <div class="pt-2">
+                <a href="tel:7505697279" class="w-full flex items-center justify-center gap-2 bg-brand-600 text-white font-semibold px-4 py-3 rounded-xl shadow-md">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>Call Us: 7505697279</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - H Printer Online | Technical Assistance & Inquiries</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            500: '#0284c7',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+        }
+        .accordion-content.open {
+            max-height: 500px;
+            transition: max-height 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+   
+    <main class="flex-grow space-y-16 pb-16">
+
+        <!-- ==================== HERO SECTION ==================== -->
+       <Section></Section>
+
+        <!-- ==================== BUSINESS INFORMATION CARDS ==================== -->
+        <section class="container mx-auto px-4 md:px-8 max-w-7xl -mt-10 relative z-20">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1: Phone / WhatsApp -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-200/80 hover:border-brand-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base">Phone & WhatsApp</h3>
+                        <p class="text-xs text-slate-500 mt-1">Direct calling line for fast technical inquiries & setup walkthroughs.</p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="tel:7505697279" class="block font-extrabold text-brand-600 text-lg hover:underline">7505697279</a>
+                        <div class="flex gap-2 pt-1">
+                            <a href="tel:7505697279" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold py-2 rounded-xl text-center transition-all">
+                                <i class="fa-solid fa-phone mr-1"></i> Call
+                            </a>
+                            <a href="https://wa.me/917505697279" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2 rounded-xl text-center transition-all">
+                                <i class="fa-brands fa-whatsapp mr-1"></i> Chat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Physical Address -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-200/80 hover:border-brand-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base">Registered Address</h3>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            <br>
+                            H No 32/318, Block 32, Chilla Saroda Khadar, East Delhi, Delhi 110091, India
+                        </p>
+                    </div>
+                    <div class="pt-2 border-t border-slate-100">
+                        <button onclick="copyAddress()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold py-2 rounded-xl transition-all flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-copy"></i> Copy Full Address
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Response Times -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-200/80 hover:border-brand-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base">Working Hours</h3>
+                        <div class="text-xs text-slate-600 mt-2 space-y-1">
+                            <p class="flex justify-between"><span>Mon - Sat:</span> <strong class="text-slate-900">9:00 AM – 8:00 PM</strong></p>
+                            <p class="flex justify-between"><span>Sunday:</span> <strong class="text-amber-600">Closed </strong></p>
+                            <p class="flex justify-between pt-1"><span>Expected Reply:</span> <strong class="text-brand-600">Within 2 Hours</strong></p>
+                        </div>
+                    </div>
+                    <div class="pt-2 border-t border-slate-100 text-[11px] text-emerald-600 font-semibold flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span> Desk Active Today</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Email & Portal -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-200/80 hover:border-brand-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base">Email Inquiry</h3>
+                        <p class="text-xs text-slate-500 mt-1">Send technical queries, documentation requests, or feedback directly to our team.</p>
+                    </div>
+                    <div class="space-y-2 pt-2 border-t border-slate-100">
+                        <a href="mailto:support@hprinteronline.com" class="block font-bold text-brand-600 text-xs truncate hover:underline">support@hprinteronline.com</a>
+                        <a href="#contact-form-section" class="block bg-brand-50 hover:bg-brand-600 hover:text-white text-brand-600 text-xs font-bold py-2 rounded-xl text-center transition-all">
+                            Fill Form Below
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== MAIN CONTACT FORM & LOCATION MAP ==================== -->
+        <section id="contact-form-section" class="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden grid lg:grid-cols-12">
+                
+                <!-- Left Column: Interactive Form -->
+                <div class="lg:col-span-7 p-8 md:p-12 space-y-6">
+                    <div>
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Interactive Form</span>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2">Send Us a Technical Message</h2>
+                        <p class="text-xs text-slate-500 mt-1">Fill in the fields below and select your inquiry type for tailored assistance.</p>
+                    </div>
+
+                    <form id="dedicated-contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Full Name *</label>
+                                <input type="text" id="form-name" required placeholder="e.g. Mohd Nasir" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Phone Number *</label>
+                                <input type="tel" id="form-phone" required placeholder="10-digit mobile number" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Email Address</label>
+                                <input type="email" id="form-email" placeholder="name@example.com" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Inquiry Type *</label>
+                                <select id="form-type" required class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50 text-slate-700">
+                                    <option value="">Select Category...</option>
+                                    <option value="Buying Advice">Printer Buying & Matrix Guidance</option>
+                                    <option value="Repair Inquiry"> Maintenance Inquiry</option>
+                                    <option value="General">General Inquiry</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Printer Brand & Model</label>
+                            <input type="text" id="form-model" placeholder="e.g. InkTank 415, LaserJet Pro M126nw" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50">
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Detailed Message *</label>
+                            <textarea id="form-message" rows="4" required placeholder="Describe your error code, setup difficulty, or query in detail..." class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none bg-slate-50"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-brand-600/20 transition-all text-xs flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Submit Technical Inquiry</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Interactive Map & Visual Location Card -->
+                <div class="lg:col-span-5 bg-slate-900 text-white p-8 md:p-12 flex flex-col justify-between space-y-6 relative overflow-hidden">
+                    <div class="space-y-4">
+                        <span class="text-[10px] font-extrabold uppercase tracking-widest bg-brand-500/20 text-brand-200 px-3 py-1 rounded-full border border-brand-400/30">Location Map</span>
+                        <h3 class="text-2xl font-bold">Find Us in East Delhi</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Serving users in East Delhi 110091 and providing online technical information across India.
+                        </p>
+                    </div>
+
+                    <!-- Map Representation Box -->
+                    <div class="w-full h-64 rounded-2xl bg-slate-800 border border-slate-700 relative overflow-hidden flex flex-col items-center justify-center text-center p-6 space-y-3">
+                        <div class="w-12 h-12 bg-brand-600/30 text-brand-400 rounded-full flex items-center justify-center text-2xl border border-brand-500/40">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-white">Chilla Saroda Khadar, Block 32</p>
+                            <p class="text-xs text-slate-400 mt-0.5">East Delhi, Delhi 110091</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=Chilla+Saroda+Khadar+East+Delhi+110091" target="_blank" class="inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-md">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Google Maps
+                        </a>
+                    </div>
+
+                    <!-- Direct Call Action Box -->
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/10 backdrop-blur-sm space-y-2">
+                        <p class="text-xs font-semibold text-brand-200"><i class="fa-solid fa-headset mr-1"></i> Urgent Technical Query?</p>
+                        <p class="text-[11px] text-slate-300">Call our helpline directly for real-time setup guidance.</p>
+                        <a href="tel:7505697279" class="block text-center bg-white text-brand-900 font-extrabold text-xs py-2.5 rounded-xl hover:bg-brand-50 transition-all mt-2">
+                            <i class="fa-solid fa-phone text-brand-600 mr-1"></i> Call 7505697279
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== SUCCESS MODAL ==================== -->
+        <div id="success-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center space-y-4 shadow-2xl border border-slate-100 relative">
+                <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900">Inquiry Submitted!</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Thank you for reaching out to <strong>H Printer Online</strong>. Desk has received your request and will follow up shortly.
+                </p>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs text-left space-y-1 text-slate-700">
+                    <p><strong>Name:</strong> <span id="modal-name"></span></p>
+                    <p><strong>Type:</strong> <span id="modal-type"></span></p>
+                    <p><strong>Phone:</strong> <span id="modal-phone"></span></p>
+                </div>
+                <button onclick="closeSuccessModal()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-all">
+                    Close Window
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== QUICK TECHNICAL HELP FAQ ==================== -->
+        <section class="container mx-auto px-4 md:px-8 max-w-5xl">
+            <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200"> FAQs</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-3">
+                
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(1)" class="w-full p-4 text-left flex items-center justify-between font-bold text-slate-900 text-xs md:text-sm hover:bg-slate-50">
+                        <span>How quickly can I expect a telephone response?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs" id="faq-icon-1"></i>
+                    </button>
+                    <div class="accordion-content px-5 bg-slate-50/50" id="faq-content-1">
+                        <div class="py-4 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
+                            During operating hours (Mon-Sat, 9:00 AM – 8:00 PM), telephone inquiries to <strong>7505697279</strong> are answered immediately or returned within 2 hours.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(2)" class="w-full p-4 text-left flex items-center justify-between font-bold text-slate-900 text-xs md:text-sm hover:bg-slate-50">
+                        <span>Is H Printer Online an independent technical resource?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs" id="faq-icon-2"></i>
+                    </button>
+                    <div class="accordion-content px-5 bg-slate-50/50" id="faq-content-2">
+                        <div class="py-4 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
+                            Yes. H Printer Online operates as an independent technical portal providing driver setup info, DIY troubleshooting, and spec matrices.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(3)" class="w-full p-4 text-left flex items-center justify-between font-bold text-slate-900 text-xs md:text-sm hover:bg-slate-50">
+                        <span>What information should I provide when calling ?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-xs" id="faq-icon-3"></i>
+                    </button>
+                    <div class="accordion-content px-5 bg-slate-50/50" id="faq-content-3">
+                        <div class="py-4 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
+                            Please have your exact printer manufacturer and model number ready, along with your operating system (Windows 11, macOS, Android, iOS) and any error code messages displayed.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript Handlers -->
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function copyAddress() {
+            const addr = " H No 32/318, Block 32, Chilla Saroda Khadar, East Delhi, Delhi 110091";
+            const el = document.createElement('textarea');
+            el.value = addr;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert("Address copied to clipboard!");
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const type = document.getElementById('form-type').value;
+
+            document.getElementById('modal-name').innerText = name;
+            document.getElementById('modal-phone').innerText = phone;
+            document.getElementById('modal-type').innerText = type;
+
+            document.getElementById('success-modal').classList.remove('hidden');
+            document.getElementById('dedicated-contact-form').reset();
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            const isOpen = content.classList.contains('open');
+
+            document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('open'));
+            document.querySelectorAll('[id^="faq-icon-"]').forEach(el => el.classList.remove('rotate-180'));
+
+            if (!isOpen) {
+                content.classList.add('open');
+                icon.classList.add('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-sm py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+                <!-- Col 1 -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center gap-2 text-white font-bold text-lg">
+                        <i class="fa-solid fa-print text-brand-500"></i> H PRINTER ONLINE
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Your trusted independent guide for printer setup, driver information, wireless networking, and troubleshooting.
+                    </p>
+                    <p class="text-xs text-brand-400 font-semibold">
+                        <i class="fa-solid fa-phone text-xs mr-1"></i> Call Line: 7505697279
+                    </p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><button onclick="switchTab('home')" class="hover:text-white transition-colors"><a href="index.html">Home Page</a></button></li>
+                        <li><button onclick="switchTab('contact')" class="hover:text-white transition-colors"><a href="contact-us.html">Contact Us</a></button></li>
+                        <li><button onclick="switchTab('privacy')" class="hover:text-white transition-colors"><a href="privacy-policy.html">Privacy Policy</a></button></li>
+                        <li><button onclick="switchTab('disclaimer')" class="hover:text-white transition-colors"><a href="disclaimer.html">Disclaimer</a></button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Guides & Setup</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Wi-Fi Setup Help</a></li>
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Driver Installation</a></li>
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Offline Printer Fix</a></li>
+                        <li><a href="#" onclick="switchTab('home')" class="hover:text-white transition-colors">Scanner Configuration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-3">Independent Disclaimer</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        H Printer Online is an independent service provider. Third-party brand names & trademarks are used purely for informational references.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 H Printer Online. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <button onclick="switchTab('privacy')" class="hover:underline"><a href="privacy-policy.html">Privacy Policy</a></button> | 
+                    <button onclick="switchTab('disclaimer')" class="hover:underline"><a href="disclaimer.html">Disclaimer</a></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Navigation & Interactivity -->
+    <script>
+        // Tab switching logic
+        function switchTab(tabId) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected tab
+            const targetTab = document.getElementById('tab-' + tabId);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+
+            // Update desktop nav buttons styling
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('text-brand-600', 'bg-brand-50', 'font-semibold');
+                btn.classList.add('hover:text-brand-600', 'hover:bg-slate-100');
+            });
+
+            const activeNavBtn = document.getElementById('nav-' + tabId);
+            if (activeNavBtn) {
+                activeNavBtn.classList.add('text-brand-600', 'bg-brand-50', 'font-semibold');
+                activeNavBtn.classList.remove('hover:bg-slate-100');
+            }
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+
+            // Scroll to top of window
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        // Accordion FAQ Toggle
+        function toggleFaq(faqId) {
+            const content = document.getElementById(faqId);
+            const icon = document.getElementById(faqId + '-icon');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Contact Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successBox = document.getElementById('form-success');
+            const form = document.getElementById('contact-form');
+            
+            successBox.classList.remove('hidden');
+            form.reset();
+
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
